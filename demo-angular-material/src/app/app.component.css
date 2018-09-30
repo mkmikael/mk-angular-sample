@@ -1,0 +1,21 @@
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.mk-wrap-table {
+  padding: 20px 30px;
+}

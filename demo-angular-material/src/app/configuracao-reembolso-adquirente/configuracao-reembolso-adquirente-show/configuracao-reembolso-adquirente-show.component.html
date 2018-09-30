@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Bandeira</th>
+      <th>Débito</th>
+      <th>A vista</th>
+      <th colspan="2">Parcelada Estabelecimento</th>
+    </tr>
+    <tr>
+      <th>1x</th>
+      <th>1x</th>
+      <th>2x à 6x</th>
+      <th>7x à 12x</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let interchange of taxas; let i = index">
+      <td>{{ interchange.bandeira }}</td>
+      <td *ngFor="let taxa of interchange.taxas; let j = index" (click)="alterarTaxa(taxa, $event)">
+        <span [hidden]="(taxa == selectedTaxa)">
+            {{taxa.taxa | number: '1.2-2'}}%
+        </span>
+        <input id="input{{taxa.id}}" [hidden]="taxa != selectedTaxa" matInput placeholder="Taxa" [(ngModel)]="taxa.taxa">
+      </td>
+    </tr>
+  </tbody>
+</table>
